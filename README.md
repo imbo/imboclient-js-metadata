@@ -20,8 +20,8 @@ var Imbo = require('imboclient');
 var metadata = require('imboclient-metadata');
 
 // Add method to prototype
-Imbo.Client.prototype.searchMetadata = searchMetadata;
-Imbo.Client.prototype.searchGlobalMetadata = searchGlobalMetadata;
+Imbo.Client.prototype.searchMetadata = metadata.searchMetadata;
+Imbo.Client.prototype.searchGlobalMetadata = metadata.searchGlobalMetadata;
 
 // Instantiate client
 var client = new Imbo.Client('http://imbo', 'foobar', 'barfoo');
