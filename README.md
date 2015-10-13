@@ -1,4 +1,4 @@
-[![npm version][1]][2] [![Build Status][2]][3] [![dependency status][4]][5]
+[![npm version](http://img.shields.io/npm/v/imboclient-metadata.svg?style=flat-square)](http://browsenpm.org/package/imboclient-js-metadata)[![Build Status](http://img.shields.io/travis/imbo/imboclient-js-metadata/master.svg?style=flat-square)](https://travis-ci.org/imbo/imboclient-js-metadata)[![Dependency status](https://img.shields.io/david/imbo/imboclient-js-metadata.svg?style=flat-square)](https://david-dm.org/imbo/imboclient-js-metadata)
 
 # Metadata search client addon
 An addon for the Imbo javascript client.
@@ -71,9 +71,3 @@ client.searchMetadata(
 Copyright (c) 2015, Kristoffer Brabrand <kristoffer@brabrand.no>
 
 Licensed under the MIT License
-
-[1]: https://img.shields.io/npm/v/imboclient-metadata.svg?style=flat-square
-[2]: http://browsenpm.org/package/imboclient-metadata
-[3]: https://img.shields.io/travis/imbo/imboclient-js-metadata/master.svg?style=flat-square
-[4]: https://travis-ci.org/imbo/imboclient-js-metadata
-[5]: https://img.shields.io/david/imbo/imboclient-js-metadata.svg
