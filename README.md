@@ -4,8 +4,7 @@ An addon for the JS `imboclient`.
 ## Installation
 imboclient-js-metadata can be installed using [npm](https://npmjs.org/):
 
-```
-# NPM:
+```sh
 npm install imboclient-metadata
 ```
 
