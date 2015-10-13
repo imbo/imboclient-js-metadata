@@ -1,0 +1,26 @@
+{
+  "name": "imboclient-metadata",
+  "version": "1.0.0",
+  "description": "An Imbo client metadata extension",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "imbo",
+    "metadata"
+  ],
+  "author": "Kristoffer Brabrand <kristoffer@brabrand.no>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^1.6.0",
+    "eslint-config-vaffel": "^2.0.0",
+    "tape": "^4.2.1"
+  },
+  "dependencies": {
+    "imboclient": "git://github.com/rexxars/imboclient-js.git#moar-2.0",
+    "lodash.merge": "^3.3.2",
+    "request": "^2.65.0"
+  }
+}
