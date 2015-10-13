@@ -1,7 +1,7 @@
 [![npm version][1]][2] [![Build Status][2]][3] [![dependency status][4]][5]
 
 # Metadata search client addon
-An addon for the JS `imboclient`.
+An addon for the Imbo javascript client.
 
 ## Installation
 imboclient-js-metadata can be installed using [npm](https://npmjs.org/):
