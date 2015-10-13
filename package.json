@@ -4,8 +4,9 @@
   "description": "An Imbo client metadata extension",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "mocha"
   },
   "keywords": [
     "imbo",
@@ -16,11 +17,11 @@
   "devDependencies": {
     "eslint": "^1.6.0",
     "eslint-config-vaffel": "^2.0.0",
-    "tape": "^4.2.1"
+    "mocha": "^2.3.3",
+    "nock": "^2.15.0",
+    "should": "^7.1.0"
   },
   "dependencies": {
-    "imboclient": "git://github.com/rexxars/imboclient-js.git#moar-2.0",
-    "lodash.merge": "^3.3.2",
-    "request": "^2.65.0"
+    "imboclient": "git://github.com/rexxars/imboclient-js.git#3.0"
   }
 }

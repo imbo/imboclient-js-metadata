@@ -1,21 +1,22 @@
 'use strict';
 
-var request = require('request');
-var MetadataQuery = require('./lib/query');
+var request = require('imboclient').Client.request;
+var ImboQuery = require('imboclient').Query;
 
 /**
  * Build the query object used to build the URI string
  *
  * @param {Object} opts - Metadata query options
+ * @param {bool} globalSearch - Whether we're searching globally or not
  * @return {Query}
  */
-function buildQuery(opts) {
-    var imboQuery = new MetadataQuery();
+function buildQuery(opts, globalSearch) {
+    var imboQuery = new ImboQuery();
 
     imboQuery.page(opts.page);
     imboQuery.limit(opts.limit);
 
-    if (opts.users) {
+    if (opts.users && globalSearch) {
         imboQuery.users(opts.users);
     }
 
@@ -51,6 +52,49 @@ function searchGlobalMetadata(query, opts, callback) {
 
     var searchEndpointUrl = this.getResourceUrl({
         path: '/images',
+        user: null,
+        query: buildQuery(opts, true).toString()
+    });
+
+    request({
+        method: 'SEARCH',
+        uri: searchEndpointUrl.toString(),
+        json: query,
+        header: {
+            'User-Agent': 'imboclient-js'
+        },
+        onComplete: function(err, res, body) {
+            callback(
+                err,
+                body ? body.images : [],
+                body ? body.search : {},
+                res
+            );
+        }
+    });
+
+    return true;
+}
+
+/**
+ * Search for images from a given user using metadata
+ *
+ * @param {String} user - User to search for images from
+ * @param {Object} query - Metadata search query
+ * @param {Object} opts - Metadata query options
+ * @param {Function} callback - Function to call with the search result
+ * @return {boolean}
+ * @this ImboClient
+ */
+function searchMetadata(user, query, opts, callback) {
+    if (typeof opts === 'function' && !callback) {
+        callback = opts;
+        opts = {};
+    }
+
+    var searchEndpointUrl = this.getResourceUrl({
+        path: '/users/' + user + '/images',
+        user: user,
         query: buildQuery(opts).toString()
     });
 
@@ -60,18 +104,19 @@ function searchGlobalMetadata(query, opts, callback) {
         json: query,
         header: {
             'User-Agent': 'imboclient-js'
+        },
+        onComplete: function(err, res, body) {
+            callback(
+                err,
+                body ? body.images : [],
+                body ? body.search : {},
+                res
+            );
         }
-    }, function(err, res, body) {
-        callback(
-            err,
-            body ? body.images : [],
-            body ? body.search : {},
-            res
-        );
     });
 
     return true;
 }
 
-// exports.searchUserMetadata = searchMetadata;
+exports.searchMetadata = searchMetadata;
 exports.searchGlobalMetadata = searchGlobalMetadata;
