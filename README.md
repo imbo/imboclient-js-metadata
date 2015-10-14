@@ -1,10 +1,10 @@
 [![npm version](http://img.shields.io/npm/v/imboclient-metadata.svg?style=flat-square)](http://browsenpm.org/package/imboclient-js-metadata)[![Build Status](http://img.shields.io/travis/imbo/imboclient-js-metadata/master.svg?style=flat-square)](https://travis-ci.org/imbo/imboclient-js-metadata)[![Dependency status](https://img.shields.io/david/imbo/imboclient-js-metadata.svg?style=flat-square)](https://david-dm.org/imbo/imboclient-js-metadata)
 
 # Metadata search client addon
-An addon for the Imbo javascript client.
+An addon for the Imbo [javascript client](https://github.com/imbo/imboclient-js). It provides the functions needed to query an [Imbo](https://github.com/imbo/imbo) installation set up with the [metadata search extension](https://github.com/imbo/imbo-metadata-search).
 
 ## Installation
-imboclient-js-metadata can be installed using [npm](https://npmjs.org/):
+Given that you've set up Imbo with the metadata search all you need to do is to install `imboclient-metadata` using [npm](https://npmjs.org/):
 
 ```sh
 npm install imboclient-metadata
